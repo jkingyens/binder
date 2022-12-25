@@ -1,0 +1,14 @@
+{ 
+    "name": { 
+        "bundle": "neuro-training",
+        "display": "The Positive Neuroplasticity Training"
+    },
+    "author": "Rick Hanson",
+    "version": "0.1.0",
+    "contents": { 
+        "Class 1": { 
+            "type": "video/mp4",
+            "source": "PNT Class 1, Part 1.mp4"
+        }
+    }
+}
