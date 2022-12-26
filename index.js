@@ -94,7 +94,8 @@ for (let i = 0; i < keys.length; i++) {
 
     // don't add type here because its already stored with the bucket
     outputApp.contents[v] = { 
-        source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + source
+        source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + source,
+        name: source.replace('.mp4', '')
     }
 
 }
@@ -125,7 +126,9 @@ console.log(process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/bind
 let contents = [ ];
 Object.keys(outputApp.contents).forEach( function (v, i) { 
     contents.push({ 
-        url: outputApp.contents[v].source
+        vurl: outputApp.contents[v].source,
+        url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html',
+        name: outputApp.contents[v].name
     })
 })
 
@@ -156,5 +159,39 @@ async function run3() {
     }
 };
 run3()
+
+// render each of the videos into their own pages
+contents.forEach(function (c, i) { 
+
+    // render app template using handlebars?
+    let templ = handlebars.compile(fs.readFileSync(__dirname + '/video-template.html', 'utf8'));
+    let htmlOutput = templ({ 
+        self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i.toString() + '.html',
+        display: c.name, 
+        url: c.vurl
+    })
+
+    // console.log(htmlOutput)
+
+    // lets build an html page for these video files as well
+    // output the link to the course contents (which in term references deployed resources)
+    async function run() {
+        try {
+        const data = await s3Client.send(new PutObjectCommand({
+            Bucket: parsedApp.name.bundle,
+            Key: i.toString() + '.html',
+            Body: htmlOutput,
+            ACL: 'public-read',
+            ContentType: 'text/html'
+        }));
+        return data;
+        } catch (err) {
+        console.log("Error", err);
+        }
+    };
+    run()
+
+});
+
 
 console.log(process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/binder.html')

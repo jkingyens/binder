@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
     <title>{{ display }}</title>
     <link rel="canonical" href="{{ self_url }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -10,10 +11,9 @@
   </head>
   <body>
     <h1 id="title"> {{ display }}</h1>
-    {{#each contents}}
-    <div>
-        <a href="{{ url }}">{{ name }}</a>
-    </div>
-    {{/each}}
+    <amp-video width="480" height="270" src="{{ url }}" layout="responsive" controls> 
+        <div fallback><p>Your browser doesn't support HTML5 video.</p></div>
+        <source type="video/mp4" src="{{ url }}">
+    </amp-video>
   </body>
 </html>
