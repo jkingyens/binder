@@ -15,7 +15,7 @@ Binder is made for teachers who want to make their own course material more acce
 3. Copy the endpoint URL and save it to a file called .env in this repo folder. Example:
 
 ```
-DO_SPACE_ENDPOINT=https://rh-pnt.nyc3.digitaloceanspaces.com
+DO_SPACE_ENDPOINT=https://nyc3.digitaloceanspaces.com
 ```
 
 4. Create a key/secret pair for this space and add it to the .env file created above. Example:
