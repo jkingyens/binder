@@ -14,17 +14,22 @@ Binder is made for teachers who want to make their own course material more acce
 
 3. Copy the endpoint URL and save it to a file called .env in this repo folder. Example:
 
+```
 DO_SPACE_ENDPOINT=https://rh-pnt.nyc3.digitaloceanspaces.com
+```
 
 4. Create a key/secret pair for this space and add it to the .env file created above. Example:
 
+```
 DO_SPACE_KEY=DO00CE96V9TKWYEXHA6W
 DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
+```
 
 # Defining a Course
 
 Defining a course is easy. It's just a JSON file that tells binder the general navigation hierarchy of your content and gives it basic meta data, like a friendly name, the type of file it is, etc. Example:
 
+```
 { 
     "name": "The Positive Neuroplasticity Training",
     "author": "Rick Hanson",
@@ -36,18 +41,19 @@ Defining a course is easy. It's just a JSON file that tells binder the general n
         }
     }
 }
+```
 
 # Deploying the Course
 
 Once you have defined the course, you will want to pass it through the compiler. Before deploying to digital ocean the compiler will validate the package for errors and issues that could arise. if the package passes validation than the program will be uploaded and you will receive a link that can be used to view the course on the web:
 
-https://rh-pnt.nyc3.digitaloceanspaces.com/main/0.1.0
+https://nyc3.digitaloceanspaces.com/rh-ntp/0.1.0
 
 The underlying web format is based on Google's AMP project. We chose this because it is a simple and mobile friendly format based on HTML, making it compatible with web browsers today. 
 
 # Native Clients
 
-If you prefer, you can download a native client for Binder on either iOS or Android. Simply paste or drop the web link into the mobile client and it will be added to the list of courses in your binder. From there you can navigate and consume course material in the same way you can on the web. Over time, we expect the native clients to be more feature rich than the web, simply do to the availability of platform APIs. The links are here:
+In addition to consuming course content on the web via published AMP pages, we have native apps for Android and iOS:
 
 iOS native client (source, app store link)
 Android native client (source, app store link)
