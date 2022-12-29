@@ -6,6 +6,12 @@ Binder is a compiler that takes online course cirriculum (videos, audio and pdf)
 
 Binder is made for teachers who want to make their own course material more accessible on mobile devices. It is also possible for students taking classes to package course material for a class they are taking and share it with other students taking the class. In this case, we recommend working with your teacher to make things official though. The goal is that if you have access to the course material and $5/mo to create a digital ocean space, you should be able to package the material in a simple way.
 
+# Install
+
+```
+npm install
+```
+
 # Setup
 
 1. Create or sign into your account on Digital Ocean
@@ -43,13 +49,21 @@ Defining a course is easy. It's just a JSON file that tells binder the general n
 }
 ```
 
-# Deploying the Course
+# Build & Deploy
 
-Once you have defined the course, you will want to pass it through the compiler. Before deploying to digital ocean the compiler will validate the package for errors and issues that could arise. if the package passes validation than the program will be uploaded and you will receive a link that can be used to view the course on the web:
+To deploy the course, ensure all of the resources exists in your local filesystem. Then run: 
 
+```
+node index.js
+```
+
+The compiler will generate a bundle and publish it to cloud storage on digital ocean. For example: 
+
+```
 https://nyc3.digitaloceanspaces.com/rh-ntp/0.1.0
+```
 
-The underlying web format is based on Google's AMP project. We chose this because it is a simple and mobile friendly format based on HTML, making it compatible with web browsers today. 
+The web HTML is built on top of Google AMP pages. We chose this because it's mobile first and contains a lot of functionality we want.
 
 # Native Clients
 
