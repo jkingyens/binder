@@ -1,15 +1,11 @@
 # Binder
 
-Binder is a compiler that takes online course cirriculum (videos, audio and pdf) and deploys it into a user experience that is designed for actual users taking the course. Chances are, if you are taking an online class over the internet, it is being served by a learning management system (LMS) that was designed for the teacher it was being sold to. We provide a tool that empowers the user to get the experience they want. Learning new things is hard enough. The user should not have to fight the software or the platforms that access the content to make progress. 
-
-# Who is it for?
-
-Binder is made for teachers who want to make their own course material more accessible on mobile devices. It is also possible for students taking classes to package course material for a class they are taking and share it with other students taking the class. In this case, we recommend working with your teacher to make things official though. The goal is that if you have access to the course material and $5/mo to create a digital ocean space, you should be able to package the material in a simple way.
+Binder is a static site compiler that takes course resources (videos to start) and generates a mobile-friendly website for viewing the material. This helps students access online course material on the go. The compiler could be used by the course instruction/author or by students taking the course if they can download/extract course videos. The compiler depends on Digital Ocean Spaces for deployment to publically accessible links. Please only share course links with other students enrolled in the course if it's a paid course.
 
 # Install
 
 ```
-npm install
+npm install -g binder
 ```
 
 # Setup
@@ -54,20 +50,11 @@ Defining a course is easy. It's just a JSON file that tells binder the general n
 To deploy the course, ensure all of the resources exists in your local filesystem. Then run: 
 
 ```
-node index.js
+binder <program source directory>
 ```
 
 The compiler will generate a bundle and publish it to cloud storage on digital ocean. For example: 
 
 ```
-https://nyc3.digitaloceanspaces.com/rh-ntp/0.1.0
+https://nyc3.digitaloceanspaces.com/rh-ntp/binder.html
 ```
-
-The web HTML is built on top of Google AMP pages. We chose this because it's mobile first and contains a lot of functionality we want.
-
-# Native Clients
-
-In addition to consuming course content on the web via published AMP pages, we have native apps for Android and iOS:
-
-iOS native client (source, app store link)
-Android native client (source, app store link)
