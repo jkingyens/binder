@@ -1,6 +1,6 @@
 # Binder
 
-Binder is a static site compiler that takes course resources (videos to start) and generates a mobile-friendly website for viewing the material. This helps students access online course material on the go. The compiler could be used by the course instruction/author or by students taking the course if they can download/extract course videos. The compiler depends on Digital Ocean Spaces for deployment to publically accessible links. Please only share course links with other students enrolled in the course if it's a paid course.
+Binder is a static site compiler that takes course resources (videos to start) and generates a mobile-friendly website for viewing the material. This helps students access online course material on the go. The compiler could be used by the course instruction/author or by students taking the course if they can download/extract course videos. The compiler depends on Digital Ocean Spaces for deployment to publically accessible links. 
 
 # Install
 
@@ -53,3 +53,4 @@ If there are no errors, the compiler will return a link to access the course mat
 ```
 https://nyc3.digitaloceanspaces.com/rh-ntp/binder.html
 ```
+If you are compiling a paid course as a student, please only share links with other enrolled students
