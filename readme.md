@@ -45,7 +45,7 @@ A course is just a JSON file with metadata along with pointers to the resources 
 To compile the course from source material and deploy to public cloud: 
 
 ```
-binder <program source directory>
+binder <course JSON file>
 ```
 
 The compiler will generate a bundle and publish it to cloud storage on digital ocean. For example: 
