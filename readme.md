@@ -48,7 +48,7 @@ To compile the course from source material and deploy to public cloud:
 binder <path to course JSON file>
 ```
 
-The compiler will generate a bundle and publish it to cloud storage on digital ocean. For example: 
+If there are no errors, the compiler will return a link to access the course material. Ex: 
 
 ```
 https://nyc3.digitaloceanspaces.com/rh-ntp/binder.html
