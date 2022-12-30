@@ -14,15 +14,10 @@ npm install -g binder
 
 2. Create a new space from the Digital Ocean developer console.
 
-3. Copy the endpoint URL and save it to a file called .env in this repo folder. Example:
+3. Set the Digital Ocean Space endpoint, key and secret in your environment:
 
 ```
 DO_SPACE_ENDPOINT=https://nyc3.digitaloceanspaces.com
-```
-
-4. Create a key/secret pair for this space and add it to the .env file created above. Example:
-
-```
 DO_SPACE_KEY=DO00CE96V9TKWYEXHA6W
 DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 ```
@@ -47,7 +42,7 @@ Defining a course is easy. It's just a JSON file that tells binder the general n
 
 # Build & Deploy
 
-To deploy the course, ensure all of the resources exists in your local filesystem. Then run: 
+To compile the course from source material and deploy to public cloud: 
 
 ```
 binder <program source directory>
