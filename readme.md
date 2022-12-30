@@ -10,9 +10,9 @@ npm install -g binder
 
 # Setup
 
-1. Create or sign into your account on Digital Ocean
+1. [Get an account](https://cloud.digitalocean.com/registrations/new) on Digital Ocean
 
-2. Create a new space from the Digital Ocean developer console.
+2. Create access tokens for Spaces API [from the dev console](https://cloud.digitalocean.com/account/api/tokens)
 
 3. Set the Digital Ocean Space endpoint, key and secret in your environment:
 
