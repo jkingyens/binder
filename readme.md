@@ -24,7 +24,7 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 
 # Defining a Course
 
-Defining a course is easy. It's just a JSON file that tells binder the general navigation hierarchy of your content and gives it basic meta data, like a friendly name, the type of file it is, etc. Example:
+A course is just a JSON file with metadata along with pointers to the resources that make up the course ie) videos.
 
 ```
 { 
