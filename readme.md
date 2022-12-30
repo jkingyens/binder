@@ -40,7 +40,7 @@ A course is just a JSON file with metadata along with pointers to the resources 
 }
 ```
 
-# Build & Deploy
+# Deploying a Course
 
 To compile the course from source material and deploy to public cloud: 
 
