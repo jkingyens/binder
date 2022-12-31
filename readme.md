@@ -28,13 +28,16 @@ A course is just a JSON file with metadata along with pointers to the resources 
 
 ```
 { 
-    "name": "The Positive Neuroplasticity Training",
+    "name": { 
+        "bundle": "neuro-training",
+        "display": "The Positive Neuroplasticity Training"
+    },
     "author": "Rick Hanson",
     "version": "0.1.0",
     "contents": { 
         "Class 1": { 
-            "type": "mp4",
-            "path": "PNT Class 1, Part 1.mp4"
+            "type": "video/mp4",
+            "source": "PNT Class 1, Part 1.mp4"
         }
     }
 }
