@@ -4,7 +4,7 @@ Binder is a compiler that takes a list of course video files and generates a mob
 
 # Why?
 
-Most video-based courses over the internet are served using learning management systems (LMS) that are clunky and designed for the teachers it is being sold to, not for students taking the course. This empowers students to get the experience they want while consuming a video-based course. It gives you a noise/distraction free space to consume videos, track your progress and just archive the things you'e learned over time.
+Most video-based courses over the internet are served using learning management systems (LMS) that are clunky and designed for the teachers it is being sold to, not for students taking the course. This compiler empowers students to get the experience they want while taking an online course. It gives you a noise/distraction free space to consume videos, track your progress and just archive the things you'e learned over time.
 
 # Install
 
