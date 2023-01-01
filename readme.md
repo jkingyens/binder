@@ -24,7 +24,7 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 
 # Defining a Course
 
-A course is just a JSON file with metadata along with pointers to the resources that make up the course ie) videos.
+A course is just a JSON file with filesystem references to video content along with course metadata.
 
 ```
 { 
