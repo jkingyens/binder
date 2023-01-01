@@ -1,6 +1,6 @@
 # Binder
 
-Binder is a static site compiler that takes course resources (videos to start) and generates a mobile-friendly website for viewing the material. The compiler can be used by the course author or student. The only requirement is ability to download course videos onto a local filesystem. The compiler deploys the course to Digital Ocean via Spaces API (S3 compatible). 
+Binder is a static site compiler that takes course resources (videos to start) and generates a mobile-friendly website for viewing the material. The compiler can be used by the course author or student. You just need to get the course videos on your local filesystem. The compiler then deploys the course to Digital Ocean via Spaces API (S3 compatible). 
 
 # Install
 
