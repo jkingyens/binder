@@ -71,18 +71,27 @@ let existingURL = process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + 
 
 import { PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 
-// get a cache file if it exists so we don't upload stuff that is already there 
-const getObjectResult = await s3Client.send(new GetObjectCommand({
-    Bucket: parsedApp.name.bundle,
-    Key: '.build/cache.json'
-}));
-  
-// env-specific stream with added mixin methods.
-const bodyStream = getObjectResult.Body;
+let existingCache = { };
 
-// one-time transform.
-const bodyAsString = await bodyStream.transformToString();
-const existingCache = JSON.parse(bodyAsString)  
+try { 
+
+    // get a cache file if it exists so we don't upload stuff that is already there 
+    const getObjectResult = await s3Client.send(new GetObjectCommand({
+        Bucket: parsedApp.name.bundle,
+        Key: '.build/cache.json'
+    }));
+    
+    // env-specific stream with added mixin methods.
+    const bodyStream = getObjectResult.Body;
+
+    // one-time transform.
+    const bodyAsString = await bodyStream.transformToString();
+    existingCache = JSON.parse(bodyAsString)  
+
+} catch (e) { 
+
+
+}
 
 await (async () => { 
 
@@ -104,9 +113,11 @@ await (async () => {
         const hash = crypto.createHash('sha256').update(input).digest('hex');
         buildCacheFile[v] = hash;
 
+        const encSource = encodeURIComponent(source)
+
         // don't add type here because its already stored with the bucket
         outputApp.contents[v] = { 
-            source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + source,
+            source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + encSource,
             name: source.replace('.mp4', '')
         }
 
