@@ -1,5 +1,4 @@
 node_modules
-*.mp4
 .env
 out
-test/*.mp4
+**/*.mp4

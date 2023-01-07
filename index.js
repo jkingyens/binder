@@ -18,8 +18,16 @@ const s3Client = new S3({
     }
 });
 
+if (process.argv.length != 3) {
+    console.log ('usage: binder <source dir>') 
+    process.exit()
+}
+
+// get the project folder from the command line
+let sourceDir = process.argv[2]
+
 // parse the test file 
-let app = fs.readFileSync(__dirname + '/test/binder.json')
+let app = fs.readFileSync(__dirname + '/' + sourceDir +  '/binder.json')
 let parsedApp = JSON.parse(app)
 let outputApp = { } 
 let buildCacheFile = { } 
@@ -81,23 +89,28 @@ await (async () => {
     // iterate over the keys of contents
     outputApp.contents = { }
     buildCacheFile = { }
-    let keys = Object.keys(parsedApp.contents)
+    let keys = Object.keys(parsedApp.modules)
     for (let i = 0; i < keys.length; i++) { 
         
         let v = keys[i]
         let name = v;
-        let type = parsedApp.contents[v].type
-        let source = parsedApp.contents[v].path
+        let type = parsedApp.modules[v].type
+        let source = parsedApp.modules[v].path
 
         // get raw video data 
-        const input = fs.readFileSync(__dirname + '/test/' + source);
+        const input = fs.readFileSync(__dirname + '/' + sourceDir + '/' + source);
 
         // compute a hash so we can avoid duplicate uploads
         const hash = crypto.createHash('sha256').update(input).digest('hex');
         buildCacheFile[v] = hash;
 
+        // don't add type here because its already stored with the bucket
+        outputApp.contents[v] = { 
+            source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + source,
+            name: source.replace('.mp4', '')
+        }
+
         if (existingCache[v] == hash) { 
-            console.log('match!')
             continue;
         }
 
@@ -127,12 +140,6 @@ await (async () => {
             }
         };    
         await run();
-
-        // don't add type here because its already stored with the bucket
-        outputApp.contents[v] = { 
-            source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + source,
-            name: source.replace('.mp4', '')
-        }
 
     }
 
