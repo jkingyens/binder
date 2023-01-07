@@ -55,6 +55,10 @@ let data = run().then(function (d){
     console.log(d)
 })
 
+
+// check if an app manifest already exists and parse it
+let existingURL = process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/binder.json'
+
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 
 // iterate over the keys of contents
