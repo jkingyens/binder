@@ -6,9 +6,57 @@
     "author": "Rick Hanson",
     "version": "0.1.0",
     "modules": { 
-        "Class 1": { 
+        "Welcome and Introduction": { 
             "type": "video/mp4",
             "path": "PNT Class 1, Part 1.mp4"
+        },
+        "Practice: Challenges": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 2.mp4"
+        },
+        "Practice: Resources": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 3.mp4"
+        },
+        "Q&A: Challenges & Resources": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 4.mp4"
+        },
+        "Closing Comments on Challenges & Resources": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 5.mp4"
+        },
+        "A Taste of Taking in the Good": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 6.mp4"
+        },
+        "Taking in the Good with HEAL": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 7.mp4"
+        },
+        "Growing Inner Strengths": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 8.mp4"
+        },
+        "Learning: the Super Power of Super Powers": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 9.mp4"
+        },
+        "Practice: The Good Facts": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 10.mp4"
+        },
+        "Q&A: Anxiety about Installation": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 11.mp4"
+        },
+        "Q&A: Three Ways to Engage the Mind": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 12.mp4"
+        },
+        "Q&A: Negative Mental States": { 
+            "type": "video/mp4",
+            "path": "PNT Class 1, Part 13.mp4"
         }
     }
 }

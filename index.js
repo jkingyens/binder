@@ -118,7 +118,7 @@ await (async () => {
         // don't add type here because its already stored with the bucket
         outputApp.contents[v] = { 
             source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + encSource,
-            name: source.replace('.mp4', '')
+            name: v
         }
 
         if (existingCache[v] == hash) { 
