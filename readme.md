@@ -1,6 +1,10 @@
 # Binder
 
-Binder is a static site compiler that takes course resources (videos to start) and generates a mobile-friendly website for viewing the material. This helps students access online course material on the go. The compiler can be used by the course author or student. The only requirement is ability to download course videos onto a local filesystem. The compiler deploys the course to Digital Ocean via Spaces API (S3 compatible). 
+Binder is a compiler that takes a list of course video files and generates a mobile-friendly website for viewing the material. The compiler can be used by the course author or student. You just need to get the course videos on your local filesystem. The compiler then deploys the course to Digital Ocean via the Spaces API.
+
+# Why?
+
+Most video-based courses over the internet are served using learning management systems (LMS) that are clunky and designed for the teachers it is being sold to, not for students taking the course. This compiler empowers students to get the experience they want while taking an online course. It gives you a noise/distraction free space to consume videos, track your progress and just archive the things you'e learned over time.
 
 # Install
 
@@ -24,7 +28,7 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 
 # Defining a Course
 
-A course is just a JSON file with metadata along with pointers to the resources that make up the course ie) videos.
+A course is just a JSON file with filesystem references to video content along with course metadata.
 
 ```
 { 
