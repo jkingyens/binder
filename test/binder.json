@@ -8,7 +8,7 @@
     "contents": { 
         "Class 1": { 
             "type": "video/mp4",
-            "source": "PNT Class 1, Part 1.mp4"
+            "path": "PNT Class 1, Part 1.mp4"
         }
     }
 }

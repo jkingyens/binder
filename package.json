@@ -1,16 +1,19 @@
 {
   "name": "binder",
   "version": "1.0.0",
-  "description": "",
+  "author": "Jeff Kingyens",
+  "description": "a compiler for building online courses",
   "main": "index.js",
   "type": "module",
+  "bin": { 
+    "binder": "./index.js"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jeff Kingyens",
   "license": "MIT",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.238.0",
