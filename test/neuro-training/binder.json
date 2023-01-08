@@ -6,57 +6,309 @@
     "author": "Rick Hanson",
     "version": "0.1.0",
     "modules": { 
-        "Welcome and Introduction": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 1.mp4"
+        "The Essence of Postiive Neuroplasticity": {
+            "Welcome and Introduction": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 1.mp4"
+            },
+            "Practice: Challenges": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 2.mp4"
+            },
+            "Practice: Resources": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 3.mp4"
+            },
+            "Q&A: Challenges & Resources": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 4.mp4"
+            },
+            "Closing Comments on Challenges & Resources": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 5.mp4"
+            },
+            "A Taste of Taking in the Good": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 6.mp4"
+            },
+            "Taking in the Good with HEAL": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 7.mp4"
+            },
+            "Growing Inner Strengths": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 8.mp4"
+            },
+            "Learning: the Super Power of Super Powers": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 9.mp4"
+            },
+            "Practice: The Good Facts": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 10.mp4"
+            },
+            "Q&A: Anxiety about Installation": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 11.mp4"
+            },
+            "Q&A: Three Ways to Engage the Mind": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 12.mp4"
+            },
+            "Q&A: Negative Mental States": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 13.mp4"
+            }
+        }, 
+        "Having, Enriching and Absorbing Beneficial Experiences" : { 
+            "Elements of Experience": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 1.mp4"
+            },
+            "Having Beneficial Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 2.mp4"
+            },
+            "Q&A - Happiness, Suffering + The Hedonic Treadmill": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 3.mp4"
+            },
+            "Creating Beneficial Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 4.mp4"
+            },
+            "Q&A - Evoking a Beneficial Experience + Authenticity": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 5.mp4"
+            },
+            "Turning a Good Fact into a Good Experience": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 6.mp4"
+            },
+            "Practice - Creating a Beneficial Experience": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 7.mp4"
+            },
+            "Enriching Beneficial Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 8.mp4"
+            },
+            "Practice - Enriching an Experience": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 9.mp4"
+            },
+            "Absorbing Beneficial Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 10.mp4"
+            },
+            "Practice: Being for Yourself}": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 11.mp4"
+            },
+            "Practice: Key Takeaways So Far": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 12.mp4"
+            },
+            "Q&A: Chronic Pain and Childhood Trauma": { 
+                "type": "video/mp4",
+                "path": "PNT Class 2, Part 13.mp4"
+            }
         },
-        "Practice: Challenges": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 2.mp4"
+        "Linking Positive and Negative Material" : { 
+            "Why it's Good to Take in the Good": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 1.mp4"
+            },
+            "Q&A - How to Avoid Clinging to Experiences and Aspire without Attachment": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 2.mp4"
+            },
+            "Practice - Centering in Safety, Satisfaction, and Connection": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 3.mp4"
+            },
+            "Q&A - Growing + Using Resources, Handling Threats": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 4.mp4"
+            },
+            "Key Resource Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 5.mp4"
+            },
+            "The Responsive + Reactive Modes": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 6.mp4"
+            },
+            "Your Vitamin C + The Triune Brain": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 7.mp4"
+            },
+            "Q&A - Applying Meditation to Daily Life": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 8.mp4"
+            },
+            "Linking Positive + Negative Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 9.mp4"
+            },
+            "Working with Hijacking": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 10.mp4"
+            },
+            "Practice - HEAL": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 11.mp4"
+            },
+            "Q&A - How Does Memory Work, and How Do We Change What We've Learned?": { 
+                "type": "video/mp4",
+                "path": "PNT Class 3, Part 12.mp4"
+            }
         },
-        "Practice: Resources": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 3.mp4"
+        "Growing Strengths for Safety" : { 
+            "Practice: What do You want to Take Home from this Program?": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 1.mp4"
+            },
+            "Q&A - Practicing, Cultivation, + Suicidal Ideation": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 2.mp4"
+            },
+            "Self-Compassion": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 3.mp4"
+            },
+            "Practice: Self-Compassion": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 4.mp4"
+            },
+            "Q&A - Hypnosis, Accessing Resources When You're Hijacked": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 5.mp4"
+            },
+            "Fear": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 6.mp4"
+            },
+            "Practice: Feeling Protected": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 7.mp4"
+            },
+            "Practice - Letting Go of Needless Anxiety": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 8.mp4"
+            },
+            "First and Second Darts": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 9.mp4"
+            },
+            "Q&A - Installing and Savoring": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 10.mp4"
+            },
+            "Q&A - Feeling Cared About + Risking the Dreaded Experiences": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 11.mp4"
+            },
+            "Q&A - Dealing with Hurting Others": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 12.mp4"
+            },
+            "Practice - Dealing with Safety Issues Responsively": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 13.mp4"
+            },
+            "Getting Hijacked by Negative Material": { 
+                "type": "video/mp4",
+                "path": "PNT Class 4, Part 14.mp4"
+            }
         },
-        "Q&A: Challenges & Resources": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 4.mp4"
+        "Growing Strengths for Satisfaction" : { 
+            "Introduction to Strengths for Satisfaction": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 1.mp4"
+            },
+            "Practice - Accomplishments": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 2.mp4"
+            },
+            "Practice - Feelings of Accomplishment": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 3.mp4"
+            },
+            "Practice - Recognizing Beauty": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 4.mp4"
+            },
+            "The R.A.I.N. Practice": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 5.mp4"
+            },
+            "Liking and Wanting": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 6.mp4"
+            },
+            "Encouraging Motivation": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 8.mp4"
+            },
+            "Practice - Encouraging Motivation": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 9.mp4"
+            },
+            "Q&A - Enjoying Accomplishments, Playfulness, and Inhibitions": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 10.mp4"
+            },
+            "Practice - Responsive Approaches to Opportunity and Loss": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 11.mp4"
+            },
+            "Practice - Resources for Risking the Dreaded Experience": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 13.mp4"
+            },
+            "Q&A - Internalizing Permission": { 
+                "type": "video/mp4",
+                "path": "PNT Class 5, Part 14.mp4"
+            }
         },
-        "Closing Comments on Challenges & Resources": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 5.mp4"
-        },
-        "A Taste of Taking in the Good": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 6.mp4"
-        },
-        "Taking in the Good with HEAL": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 7.mp4"
-        },
-        "Growing Inner Strengths": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 8.mp4"
-        },
-        "Learning: the Super Power of Super Powers": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 9.mp4"
-        },
-        "Practice: The Good Facts": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 10.mp4"
-        },
-        "Q&A: Anxiety about Installation": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 11.mp4"
-        },
-        "Q&A: Three Ways to Engage the Mind": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 12.mp4"
-        },
-        "Q&A: Negative Mental States": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 13.mp4"
+        "Growing Strengths for Connection" : { 
+            "The Tip of the Root": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 1.mp4"
+            },
+            "Feelings of Worth": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 2.mp4"
+            },
+            "Practice - Good Facts in Life": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 3.mp4"
+            },
+            "Practice - Feelings of Worth": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 4.mp4"
+            },
+            "Practice - Reflecting on Feelings of Worth Practice": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 5.mp4"
+            },
+            "Q&A - Different People's Needs for Empathy": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 6.mp4"
+            },
+            "Practice - Takeaways from this Training": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 7.mp4"
+            },
+            "Takeaway Suggestions for the Days Ahead": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 8.mp4"
+            },
+            "Practice - Peace, Contentment, Love": { 
+                "type": "video/mp4",
+                "path": "PNT Class 6, Part 9.mp4"
+            }
         }
     }
 }

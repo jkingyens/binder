@@ -96,61 +96,80 @@ try {
 await (async () => { 
 
     // iterate over the keys of contents
-    outputApp.contents = { }
+    outputApp.modules = { }
     buildCacheFile = { }
-    let keys = Object.keys(parsedApp.modules)
-    for (let i = 0; i < keys.length; i++) { 
+    let modules = Object.keys(parsedApp.modules)
+
+    for (let i = 0; i < modules.length; i++) { 
         
-        let v = keys[i]
-        let name = v;
-        let type = parsedApp.modules[v].type
-        let source = parsedApp.modules[v].path
+        let moduleName = modules[i]
 
-        // get raw video data 
-        const input = fs.readFileSync(__dirname + '/' + sourceDir + '/' + source);
+        let videos = Object.keys(parsedApp.modules[moduleName])
 
-        // compute a hash so we can avoid duplicate uploads
-        const hash = crypto.createHash('sha256').update(input).digest('hex');
-        buildCacheFile[v] = hash;
+        outputApp.modules[moduleName] = { };
 
-        const encSource = encodeURIComponent(source)
+        for (let j = 0; j < videos.length; j++) { 
 
-        // don't add type here because its already stored with the bucket
-        outputApp.contents[v] = { 
-            source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + encSource,
-            name: v
-        }
+            console.log('fasdfas')
 
-        if (existingCache[v] == hash) { 
-            continue;
-        }
+            let videoName = videos[j];
 
-        // lets upload this video to our digital ocean account
-        const bucketParams = {
-            Bucket: parsedApp.name.bundle,
-            Key: source,
-            Body: input,
-            ACL: 'public-read',
-            ContentType: type
-        };
+            let type = parsedApp.modules[moduleName][videoName].type
+            let source = parsedApp.modules[moduleName][videoName].path
 
-        let run = async () => {
-            try {
-            const data = await s3Client.send(new PutObjectCommand(bucketParams));
-            /*
-            console.log(
-                "Successfully uploaded object: " +
-                bucketParams.Bucket +
-                "/" +
-                bucketParams.Key
-            );
-            */
-            return data;
-            } catch (err) {
-            console.log("Error", err);
+            console.log(source)
+    
+            // get raw video data 
+            const input = fs.readFileSync(__dirname + '/' + sourceDir + '/' + source);
+    
+            // compute a hash so we can avoid duplicate uploads
+            const hash = crypto.createHash('sha256').update(input).digest('hex');
+            buildCacheFile[videoName] = hash;
+    
+            const encSource = encodeURIComponent(source)
+    
+            // don't add type here because its already stored with the bucket
+            outputApp.modules[moduleName][videoName] = { 
+                source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + encSource,
+                name: videoName
             }
-        };    
-        await run();
+    
+            if (existingCache[videoName] == hash) { 
+                console.log('matched')
+                continue;
+            } else { 
+                console.log('unmatched')
+            }
+    
+            // lets upload this video to our digital ocean account
+            const bucketParams = {
+                Bucket: parsedApp.name.bundle,
+                Key: source,
+                Body: input,
+                ACL: 'public-read',
+                ContentType: type
+            };
+    
+            let run = async () => {
+                try {
+                const data = await s3Client.send(new PutObjectCommand(bucketParams));
+                
+                console.log(
+                    "Successfully uploaded object: " +
+                    bucketParams.Bucket +
+                    "/" +
+                    bucketParams.Key
+                );
+                
+                return data;
+                } catch (err) {
+                console.log("Error", err);
+                }
+            };    
+            await run();   
+            console.log('uploaded')
+
+        }
 
     }
 
@@ -193,11 +212,13 @@ await (async () => {
     await run4()
 
     let contents = [ ];
-    Object.keys(outputApp.contents).forEach( function (v, i) { 
-        contents.push({ 
-            vurl: outputApp.contents[v].source,
-            url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html',
-            name: outputApp.contents[v].name
+    Object.keys(outputApp.modules).forEach( function (moduleName, i) { 
+        Object.keys(outputApp.modules[moduleName]).forEach( function (videoName, i) { 
+            contents.push({ 
+                vurl: outputApp.modules[moduleName][videoName].source,
+                url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html',
+                name: outputApp.modules[moduleName][videoName].name
+            })
         })
     })
 
