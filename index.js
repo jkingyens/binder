@@ -1,8 +1,10 @@
+#!/usr/bin/env node
 import fs from 'fs';
 import { S3 } from "@aws-sdk/client-s3";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import handlebars from 'handlebars';
+import crypto from 'crypto';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -16,11 +18,19 @@ const s3Client = new S3({
     }
 });
 
-// parse the test file 
+if (process.argv.length != 3) {
+    console.log ('usage: binder <source dir>') 
+    process.exit()
+}
 
-let app = fs.readFileSync(__dirname + '/test/binder.json')
+// get the project folder from the command line
+let sourceDir = process.argv[2]
+
+// parse the test file 
+let app = fs.readFileSync(__dirname + '/' + sourceDir +  '/binder.json')
 let parsedApp = JSON.parse(app)
 let outputApp = { } 
+let buildCacheFile = { } 
 
 // copy over name, author and version
 outputApp.name = { }
@@ -52,138 +62,162 @@ const run = async () => {
   };
   
 let data = run().then(function (d){ 
-    console.log(d)
+    // console.log(d)
 })
 
 
 // check if an app manifest already exists and parse it
 let existingURL = process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/binder.json'
 
-import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 
-// iterate over the keys of contents
-outputApp.contents = { }
-let keys = Object.keys(parsedApp.contents)
-for (let i = 0; i < keys.length; i++) { 
-    
-    let v = keys[i]
-    let name = v;
-    let type = parsedApp.contents[v].type
-    let source = parsedApp.contents[v].source
+let existingCache = { };
 
-    // lets upload this video to our digital ocean account
-    const bucketParams = {
+try { 
+
+    // get a cache file if it exists so we don't upload stuff that is already there 
+    const getObjectResult = await s3Client.send(new GetObjectCommand({
         Bucket: parsedApp.name.bundle,
-        Key: source,
-        Body: fs.readFileSync(__dirname + '/test/' + source),
-        ACL: 'public-read',
-        ContentType: type
-    };
+        Key: '.build/cache.json'
+    }));
+    
+    // env-specific stream with added mixin methods.
+    const bodyStream = getObjectResult.Body;
 
-    let run = async () => {
+    // one-time transform.
+    const bodyAsString = await bodyStream.transformToString();
+    existingCache = JSON.parse(bodyAsString)  
+
+} catch (e) { 
+
+
+}
+
+await (async () => { 
+
+    // iterate over the keys of contents
+    outputApp.contents = { }
+    buildCacheFile = { }
+    let keys = Object.keys(parsedApp.modules)
+    for (let i = 0; i < keys.length; i++) { 
+        
+        let v = keys[i]
+        let name = v;
+        let type = parsedApp.modules[v].type
+        let source = parsedApp.modules[v].path
+
+        // get raw video data 
+        const input = fs.readFileSync(__dirname + '/' + sourceDir + '/' + source);
+
+        // compute a hash so we can avoid duplicate uploads
+        const hash = crypto.createHash('sha256').update(input).digest('hex');
+        buildCacheFile[v] = hash;
+
+        const encSource = encodeURIComponent(source)
+
+        // don't add type here because its already stored with the bucket
+        outputApp.contents[v] = { 
+            source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + encSource,
+            name: v
+        }
+
+        if (existingCache[v] == hash) { 
+            continue;
+        }
+
+        // lets upload this video to our digital ocean account
+        const bucketParams = {
+            Bucket: parsedApp.name.bundle,
+            Key: source,
+            Body: input,
+            ACL: 'public-read',
+            ContentType: type
+        };
+
+        let run = async () => {
+            try {
+            const data = await s3Client.send(new PutObjectCommand(bucketParams));
+            /*
+            console.log(
+                "Successfully uploaded object: " +
+                bucketParams.Bucket +
+                "/" +
+                bucketParams.Key
+            );
+            */
+            return data;
+            } catch (err) {
+            console.log("Error", err);
+            }
+        };    
+        await run();
+
+    }
+
+    // generate a package file that can be directly hosted on digital ocean storage blob
+    fs.writeFileSync(__dirname + '/out/userland.json', JSON.stringify(outputApp, ' ', 4), 'utf8')
+    fs.mkdirSync(__dirname + '/out/.build')
+    fs.writeFileSync(__dirname + '/out/.build/cache.json', JSON.stringify(buildCacheFile, ' ', 4, 'utf8'))
+
+    // output the link to the course contents (which in term references deployed resources)
+    async function run2() {
         try {
-        const data = await s3Client.send(new PutObjectCommand(bucketParams));
-        console.log(
-            "Successfully uploaded object: " +
-            bucketParams.Bucket +
-            "/" +
-            bucketParams.Key
-        );
+        const data = await s3Client.send(new PutObjectCommand({
+            Bucket: parsedApp.name.bundle,
+            Key: 'userland.json',
+            Body: JSON.stringify(outputApp, ' ', 4),
+            ACL: 'public-read',
+            ContentType: 'application/json'
+        }));
         return data;
         } catch (err) {
         console.log("Error", err);
         }
-    };    
-    run();
+    };
+    await run2()
 
-    // don't add type here because its already stored with the bucket
-    outputApp.contents[v] = { 
-        source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + source,
-        name: source.replace('.mp4', '')
-    }
+    async function run4() {
+        try {
+            const data = await s3Client.send(new PutObjectCommand({
+                Bucket: parsedApp.name.bundle,
+                Key: '.build/cache.json',
+                Body: JSON.stringify(buildCacheFile, ' ', 4),
+                ACL: 'public-read',
+                ContentType: 'application/json'
+            }));
+            return data;
+            } catch (err) {
+            console.log("Error", err);
+        }
+    };
+    await run4()
 
-}
-
-// generate a package file that can be directly hosted on digital ocean storage blob
-
-fs.writeFileSync(__dirname + '/out/binder.json', JSON.stringify(outputApp, ' ', 4), 'utf8')
-
-// output the link to the course contents (which in term references deployed resources)
-async function run2() {
-    try {
-    const data = await s3Client.send(new PutObjectCommand({
-        Bucket: parsedApp.name.bundle,
-        Key: 'binder.json',
-        Body: JSON.stringify(outputApp, ' ', 4),
-        ACL: 'public-read',
-        ContentType: 'application/json'
-    }));
-    return data;
-    } catch (err) {
-    console.log("Error", err);
-    }
-};
-run2()
-
-console.log(process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/binder.json')
-
-let contents = [ ];
-Object.keys(outputApp.contents).forEach( function (v, i) { 
-    contents.push({ 
-        vurl: outputApp.contents[v].source,
-        url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html',
-        name: outputApp.contents[v].name
+    let contents = [ ];
+    Object.keys(outputApp.contents).forEach( function (v, i) { 
+        contents.push({ 
+            vurl: outputApp.contents[v].source,
+            url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html',
+            name: outputApp.contents[v].name
+        })
     })
-})
-
-// render app template using handlebars?
-let templ = handlebars.compile(fs.readFileSync(__dirname + '/template.html', 'utf8'));
-let htmlOutput = templ({ 
-    self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/binder.html',
-    display: parsedApp.name.display, 
-    contents: contents
-})
-
-// console.log(htmlOutput)
-
-// lets build an html page for these video files as well
-// output the link to the course contents (which in term references deployed resources)
-async function run3() {
-    try {
-    const data = await s3Client.send(new PutObjectCommand({
-        Bucket: parsedApp.name.bundle,
-        Key: 'binder.html',
-        Body: htmlOutput,
-        ACL: 'public-read',
-        ContentType: 'text/html'
-    }));
-    return data;
-    } catch (err) {
-    console.log("Error", err);
-    }
-};
-run3()
-
-// render each of the videos into their own pages
-contents.forEach(function (c, i) { 
 
     // render app template using handlebars?
-    let templ = handlebars.compile(fs.readFileSync(__dirname + '/video-template.html', 'utf8'));
+    let templ = handlebars.compile(fs.readFileSync(__dirname + '/template.html', 'utf8'));
     let htmlOutput = templ({ 
-        self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i.toString() + '.html',
-        display: c.name, 
-        url: c.vurl
+        self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/index.html',
+        display: parsedApp.name.display, 
+        contents: contents
     })
 
     // console.log(htmlOutput)
 
     // lets build an html page for these video files as well
     // output the link to the course contents (which in term references deployed resources)
-    async function run() {
+    async function run3() {
         try {
         const data = await s3Client.send(new PutObjectCommand({
             Bucket: parsedApp.name.bundle,
-            Key: i.toString() + '.html',
+            Key: 'index.html',
             Body: htmlOutput,
             ACL: 'public-read',
             ContentType: 'text/html'
@@ -193,9 +227,44 @@ contents.forEach(function (c, i) {
         console.log("Error", err);
         }
     };
-    run()
+    await run3()
 
-});
+    // render each of the videos into their own pages
+    for (let i = 0; i < contents.length; i++) { 
+        
+        let c = contents[i]
 
+        // render app template using handlebars?
+        let templ = handlebars.compile(fs.readFileSync(__dirname + '/video-template.html', 'utf8'));
+        let htmlOutput = templ({ 
+            self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i.toString() + '.html',
+            display: c.name, 
+            url: c.vurl
+        })
 
-console.log(process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/binder.html')
+        // console.log(htmlOutput)
+
+        // lets build an html page for these video files as well
+        // output the link to the course contents (which in term references deployed resources)
+        async function run() {
+            try {
+            const data = await s3Client.send(new PutObjectCommand({
+                Bucket: parsedApp.name.bundle,
+                Key: i.toString() + '.html',
+                Body: htmlOutput,
+                ACL: 'public-read',
+                ContentType: 'text/html'
+            }));
+            return data;
+            } catch (err) {
+            console.log("Error", err);
+            }
+        };
+        await run()
+
+    }
+
+    console.log(process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/index.html')
+
+})();
+
