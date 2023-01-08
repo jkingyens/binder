@@ -1,14 +1,116 @@
 { 
     "name": { 
-        "bundle": "neuro-training",
-        "display": "The Positive Neuroplasticity Training"
+        "bundle": "write-of-passage",
+        "display": "Write of Passage"
     },
-    "author": "Rick Hanson",
+    "author": "David Perell",
     "version": "0.1.0",
     "modules": { 
-        "Class 1": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 1.mp4"
+        "Write of Passage Cohort 8": { 
+            "The Age of Leverage": { 
+                "type": "video/mp4",
+                "path": "0 The Age of Leverage -Archived on September 6- 2022-.mp4"    
+            },
+            "Live Session 1": { 
+                "type": "video/mp4",
+                "path": "1 Live Session 1.mp4"    
+            },
+            "How to Get Crazy Value": { 
+                "type": "video/mp4",
+                "path": "2 How to Get Crazy Value.mp4"    
+            },
+            "Live Session 2": { 
+                "type": "video/mp4",
+                "path": "3 Live Session 2.mp4"    
+            },
+            "Information Capture": { 
+                "type": "video/mp4",
+                "path": "5 Information Capture Final Draft.mp4"    
+            },
+            "Personal Monopoly": { 
+                "type": "video/mp4",
+                "path": "6 Personal Monopoly final draft -1-.mp4"    
+            },
+            "Live Session 3": { 
+                "type": "video/mp4",
+                "path": "7 Live Session 3.mp4"    
+            },
+            "How to Prepare for CrossFit": { 
+                "type": "video/mp4",
+                "path": "8 How to Prepare for CrossFit.mp4"    
+            },
+            "Live Session 4": { 
+                "type": "video/mp4",
+                "path": "9 Live Session 4.mp4"    
+            },
+            "Content Triangle": { 
+                "type": "video/mp4",
+                "path": "10 Content Triangle final draft.mp4"    
+            },
+            "Live Session 5": { 
+                "type": "video/mp4",
+                "path": "11 Live Session 5.mp4"    
+            },
+            "Live Session 6": { 
+                "type": "video/mp4",
+                "path": "12 Live Session 6.mp4"    
+            },
+            "Live Session 7": { 
+                "type": "video/mp4",
+                "path": "13 Live Session 7.mp4"    
+            },
+            "Live Session 8": { 
+                "type": "video/mp4",
+                "path": "14 Live Session 8.mp4"    
+            },
+            "Distribution": { 
+                "type": "video/mp4",
+                "path": "15 Write of Passage Distribution final UPD 04.10.mp4"    
+            },
+            "Ladder of Expertise": { 
+                "type": "video/mp4",
+                "path": "16 Ladder of Expertise final draft.mp4"    
+            },
+            "Evernote Tour": { 
+                "type": "video/mp4",
+                "path": "17 D Evernote Tour.mp4"    
+            },
+            "Digital Postcard": { 
+                "type": "video/mp4",
+                "path": "18 Digital Postcard final draft.mp4"    
+            },
+            "Live Session 9": { 
+                "type": "video/mp4",
+                "path": "19 Live Session 9.mp4"    
+            },
+            "Curation Assignment": { 
+                "type": "video/mp4",
+                "path": "21 Curation Assignment1.mp4"    
+            },
+            "Live Session 10": { 
+                "type": "video/mp4",
+                "path": "22 Live Session 10.mp4"    
+            },
+            "Personal Monopoly Advanced": { 
+                "type": "video/mp4",
+                "path": "23 Personal Monopoly Advanced final draft.mp4"    
+            },
+            "Live Session 11": { 
+                "type": "video/mp4",
+                "path": "24 Live Session 11.mp4"    
+            },
+            "Bonus Writing Q&A": { 
+                "type": "video/mp4",
+                "path": "25 David Writing QA.mp4"    
+            },
+            "Live Session 12": { 
+                "type": "video/mp4",
+                "path": "26 Live Session 12.mp4"    
+            },
+            "Post Cohort Kickoff": { 
+                "type": "video/mp4",
+                "path": "27 Job Opportunities Call.mp4"    
+            }
         }
     }
 }
