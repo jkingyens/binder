@@ -1,14 +1,107 @@
 { 
     "name": { 
-        "bundle": "neuro-training",
-        "display": "The Positive Neuroplasticity Training"
+        "bundle": "yc-startup-school",
+        "display": "Startup School Curriculum"
     },
-    "author": "Rick Hanson",
+    "author": "Y Combinator",
     "version": "0.1.0",
     "modules": { 
-        "Class 1": { 
-            "type": "video/mp4",
-            "path": "PNT Class 1, Part 1.mp4"
+        "Deciding to start a startup": { 
+            "Should you Start a Startup?": { 
+                "type": "video/mp4",
+                "path": "Module1/0 Should You Start A Startup  Startup School.mp4"
+            },
+            "Why You Should Leave Your FAANG Job": { 
+                "type": "video/mp4",
+                "path": "Module1/1 Why You Should Leave Your FAANG Job.mp4"
+            }
+        }, "Getting and evaluating startup ideas": { 
+            "How to Get and Evaluate Startup Ideas": { 
+                "type": "video/mp4",
+                "path": "Module2/1 How to Get and Evaluate Startup Ideas  Startup School.mp4"
+            },
+            "Avoid These Tempting Startup Ideas": { 
+                "type": "video/mp4",
+                "path": "Module2/2 Avoid These Tempting Startup Ideas.mp4"
+            },
+            "All About Pivoting": { 
+                "type": "video/mp4",
+                "path": "Module2/4 Dalton Caldwell - All About Pivoting.mp4"
+            },
+            "Where do Great Startup Ideas Come From": { 
+                "type": "video/mp4",
+                "path": "Module2/5 Where Do Great Startup Ideas Come From Dalton Caldwell and Michael Seibel.mp4"
+            }
+        }, "Building your founding team": { 
+            "All About Co-Founders": { 
+                "type": "video/mp4",
+                "path": "Module3/1 All About Co-Founders  Startup School.mp4"
+            },
+            "Co-Founder Mistakes That Kill Companies": { 
+                "type": "video/mp4",
+                "path": "Module3/2 Co-Founder Mistakes That Kill Companies & How To Avoid Them.mp4"
+            },
+            "How Much Equity to Give Your Cofounder": { 
+                "type": "video/mp4",
+                "path": "Module3/3 How Much Equity to Give Your Cofounder - Michael Seibel.mp4"
+            },
+            "How to Work Together": { 
+                "type": "video/mp4",
+                "path": "Module3/4 Kevin Hale - How to Work Together.mp4"
+            }
+        }, "Planning an MVP": { 
+            "How to Talk to Users": { 
+                "type": "video/mp4",
+                "path": "Module4/1 How To Talk To Users  Startup School.mp4"
+            },
+            "How to Plan an MVP": { 
+                "type": "video/mp4",
+                "path": "Module4/2 Michael Seibel - How to Plan an MVP.mp4"
+            }
+        }, "Launching": { 
+            "How To Launch (Again and Again)": { 
+                "type": "video/mp4",
+                "path": "Module5/1 How To Launch (Again and Again)  Startup School.mp4"
+            },
+            "How to Get Your First Customers": { 
+                "type": "video/mp4",
+                "path": "Module5/2 How to Get Your First Customers  Startup School.mp4"
+            }
+        }, "Growing and monetizing": { 
+            "Setting KPIs and Goals": { 
+                "type": "video/mp4",
+                "path": "Module6/1 Setting KPIs and Goals  Startup School.mp4"
+            },
+            "Startup Business Models and Pricing": { 
+                "type": "video/mp4",
+                "path": "Module6/2 Startup Business Models and Pricing  Startup School.mp4"
+            },
+            "Growth for Startups": { 
+                "type": "video/mp4",
+                "path": "Module6/3 Gustaf Alströmer - Growth for Startups.mp4"
+            }
+        }, "Fundraising and company building": { 
+            "How Startup Fundraising Works": { 
+                "type": "video/mp4",
+                "path": "Module7/1 How Startup Fundraising Works  Startup School.mp4"
+            },
+            "How to Apply and Succeed at Y Combinator": { 
+                "type": "video/mp4",
+                "path": "Module7/2 How to Apply And Succeed at Y Combinator  Startup School.mp4"
+            },
+            "How to Lead": { 
+                "type": "video/mp4",
+                "path": "Module7/3 Ali Rowghani - How to Lead.mp4"
+            }
+        }, "Stories from great founders": { 
+            "How to Build the Future with Mark Zuckerberg": { 
+                "type": "video/mp4",
+                "path": "Module8/1 Mark Zuckerberg  How to Build the Future.mp4"
+            },
+            "How to Build the Future with Anne Wojciciki": { 
+                "type": "video/mp4",
+                "path": "Module8/2 Anne Wojcicki  How to Build the Future.mp4"
+            }
         }
     }
 }
