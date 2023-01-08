@@ -5,6 +5,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import handlebars from 'handlebars';
 import crypto from 'crypto';
+import path from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -127,10 +128,11 @@ await (async () => {
             buildCacheFile[videoName] = hash;
     
             const encSource = encodeURIComponent(source)
+            const fileName = encodeURIComponent(path.basename(source))
     
             // don't add type here because its already stored with the bucket
             outputApp.modules[moduleName][videoName] = { 
-                source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + encSource,
+                source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + fileName,
                 name: videoName
             }
     
@@ -144,7 +146,7 @@ await (async () => {
             // lets upload this video to our digital ocean account
             const bucketParams = {
                 Bucket: parsedApp.name.bundle,
-                Key: source,
+                Key: fileName,
                 Body: input,
                 ACL: 'public-read',
                 ContentType: type
