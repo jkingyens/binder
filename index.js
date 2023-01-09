@@ -225,7 +225,7 @@ await (async () => {
     })
 
     // render app template using handlebars?
-    let templ = handlebars.compile(fs.readFileSync(__dirname + '/template.html', 'utf8'));
+    let templ = handlebars.compile(fs.readFileSync(__dirname + '/mweb/template.html', 'utf8'));
     let htmlOutput = templ({ 
         self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/index.html',
         display: parsedApp.name.display, 
@@ -258,7 +258,7 @@ await (async () => {
         let c = contents[i]
 
         // render app template using handlebars?
-        let templ = handlebars.compile(fs.readFileSync(__dirname + '/video-template.html', 'utf8'));
+        let templ = handlebars.compile(fs.readFileSync(__dirname + '/mweb/video-template.html', 'utf8'));
         let htmlOutput = templ({ 
             self_url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i.toString() + '.html',
             display: c.name, 
