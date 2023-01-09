@@ -1,6 +1,6 @@
 # Binder
 
-Binder is a compiler that bundles a set of videos into a course program. The compiler deploys the course to your Digital Ocean account via the Spaces API. You can then load and run the program using our native iOS or Android apps called Userland. Userland supports features such as progress tracking, offline caching and more coming soon. We want to make it easier to consume and complete online courses.
+Binder is a compiler that bundles a set of videos into a course program. The compiler deploys the course to your Digital Ocean account via the Spaces API. You can then load and run the program using our native iOS or Android apps called Userland. Userland supports features such as progress tracking, offline caching and more coming soon. Alternatively, you can view the videos via generated html pages based on Google's AMP format.
 
 # Defining a Course
 
