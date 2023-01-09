@@ -97,18 +97,16 @@ try {
 await (async () => { 
 
     // iterate over the keys of contents
-    outputApp.modules = { }
+    outputApp.modules = [ ]
     buildCacheFile = { }
     let modules = Object.keys(parsedApp.modules)
 
     for (let i = 0; i < modules.length; i++) { 
         
         let moduleName = modules[i]
-
         let videos = Object.keys(parsedApp.modules[moduleName])
 
-        outputApp.modules[moduleName] = { };
-
+        let theModule = [ ]
         for (let j = 0; j < videos.length; j++) { 
 
             let videoName = videos[j];
@@ -129,10 +127,10 @@ await (async () => {
             const fileName = encodeURIComponent(path.basename(source))
     
             // don't add type here because its already stored with the bucket
-            outputApp.modules[moduleName][videoName] = { 
-                source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + fileName,
-                name: videoName
-            }
+            theModule.push({
+                name: videoName,
+                source: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + fileName
+            });
     
             if (existingCache[videoName] == hash) { 
                 continue;
@@ -167,6 +165,11 @@ await (async () => {
             console.log('uploaded')
 
         }
+
+        outputApp.modules.push({ 
+            name: moduleName,
+            videos: theModule
+        })
 
     }
 
@@ -282,7 +285,8 @@ await (async () => {
 
     }
 
-    console.log(process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/index.html')
+    console.log('web: ' + process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/index.html')
+    console.log('native: ' + process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/userland.json')
 
 })();
 
