@@ -82,8 +82,10 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 
 [Source Code](ios/Userland) inside this repo.
 Load project file in XCode and hit the build button.
+App Store listing coming soon.
 
 ## Android
 
 [Source Code](android/) inside this repo.
-Load project folder in Android Studio and hi the build button.
+Load project folder in Android Studio and hit the build button.
+Play Store listing coming soon.
