@@ -20,7 +20,7 @@ class ULTabViewController : UITabBarController {
         // self.view = view
         
         let floatingButton = UIButton()
-        floatingButton.setTitle("Add", for: .normal)
+        floatingButton.setTitle("+", for: .normal)
         floatingButton.backgroundColor = .gray
         floatingButton.layer.cornerRadius = 25
         
