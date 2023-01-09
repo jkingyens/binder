@@ -64,15 +64,15 @@ https://nyc3.digitaloceanspaces.com/<bundle name>/index.html
 
 To test the compiler out, I built 3 courses I've taken in the past. The JSON specifications for these coureses are availalble in the examples directory. The video files are not here because the content is owned by the authors of the videos.
 
-### The Positive Neuroplasticity Training
+### 1. The Positive Neuroplasticity Training
 
 [This course](https://courses.rickhanson.net/courses/the-positive-neuroplasticity-training) allowed me to download offline copies of the videos in mp4 format so I could run my compiler directly on those files. [Binder file](examples/neuro-training/binder.json).
 
-### Write of Passage
+### 2. Write of Passage
 
 [This course](https://writeofpassage.school) uses Wistia as it's learning management system (LMS). I was able to find a [Wistia video downloader chrome extension](https://chrome.google.com/webstore/detail/wistia-video-downloader/acbiaofoeebeinacmcknopaikmecdehl?hl=en) and pull copies of the videos in mp4 format. [Binder file](examples/write-of-passage/binder.json).
 
-### Startup School Curriculum
+### 3. Startup School Curriculum
 
 The videos for [this course](https://www.startupschool.org/curriculum) are hosted on Youtube so I used [pytube](https://pytube.io/en/latest/) to dump each of the videos to mp4 format and ran them through the compiler. [Binder file](examples/yc-startup-school/binder.json).
 
