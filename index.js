@@ -111,8 +111,6 @@ await (async () => {
 
         for (let j = 0; j < videos.length; j++) { 
 
-            console.log('fasdfas')
-
             let videoName = videos[j];
 
             let type = parsedApp.modules[moduleName][videoName].type
@@ -137,10 +135,7 @@ await (async () => {
             }
     
             if (existingCache[videoName] == hash) { 
-                console.log('matched')
                 continue;
-            } else { 
-                console.log('unmatched')
             }
     
             // lets upload this video to our digital ocean account
