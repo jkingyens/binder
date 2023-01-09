@@ -1,10 +1,6 @@
 # Binder
 
-Binder is a compiler that takes a list of course video files and generates a mobile-friendly website for viewing the material. The compiler can be used by the course author or student. You just need to get the course videos on your local filesystem. The compiler then deploys the course to Digital Ocean via the Spaces API.
-
-# Why?
-
-Most video-based courses over the internet are served using learning management systems (LMS) that are clunky and designed for the teachers it is being sold to, not for students taking the course. This compiler empowers students to get the experience they want while taking an online course. It gives you a noise/distraction free space to consume videos, track your progress and just archive the things you'e learned over time.
+Binder is a compiler that bundles a set of videos into a course program. The compiler deploys the course to your Digital Ocean account via the Spaces API. You can then load and run the program using a native iOS or Android app. The native app supports features such as progress tracking, offline caching and more coming soon. We want to make it easier to consume and complete online courses.
 
 # Install
 
@@ -28,7 +24,8 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 
 # Defining a Course
 
-A course is just a JSON file with filesystem references to video content along with course metadata.
+A course is specified in JSON. Videos are sourced off the local filesystem with path relative to spec file.
+Here is a sample with just one module and one video file:
 
 ```
 { 
@@ -38,10 +35,12 @@ A course is just a JSON file with filesystem references to video content along w
     },
     "author": "Rick Hanson",
     "version": "0.1.0",
-    "contents": { 
-        "Class 1": { 
-            "type": "video/mp4",
-            "source": "PNT Class 1, Part 1.mp4"
+    "modules": { 
+        "The Essence of Postiive Neuroplasticity": {
+            "Welcome and Introduction": { 
+                "type": "video/mp4",
+                "path": "PNT Class 1, Part 1.mp4"
+            }
         }
     }
 }
@@ -49,15 +48,14 @@ A course is just a JSON file with filesystem references to video content along w
 
 # Deploying the Course
 
-To compile the course from source material and deploy to public cloud: 
+To compile the course and deploy to Digital Ocean: 
 
 ```
-binder <path to course JSON file>
+binder path/to/mycourse.json
 ```
 
-If there are no errors, the compiler will return a link to access the course material. Ex: 
+If there are no errors, the compiler will return a link to access the course material:
 
 ```
-https://nyc3.digitaloceanspaces.com/rh-ntp/binder.html
+https://nyc3.digitaloceanspaces.com/rh-ntp/index.html
 ```
-If you are compiling a paid course as a student, please only share links with other enrolled students
