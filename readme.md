@@ -80,10 +80,10 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 
 ## iOS
 
-[Source Code](ios/Userland) inside this repo
+[Source Code](ios/Userland) inside this repo.
 Load project file in XCode and hit the build button.
 
 ## Android
 
-[Source Code](android/) inside this repo
+[Source Code](android/) inside this repo.
 Load project folder in Android Studio and hi the build button.
