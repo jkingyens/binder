@@ -2,26 +2,6 @@
 
 Binder is a compiler that bundles a set of videos into a course program. The compiler deploys the course to your Digital Ocean account via the Spaces API. You can then load and run the program using our native iOS or Android apps called Userland. Userland supports features such as progress tracking, offline caching and more coming soon. We want to make it easier to consume and complete online courses.
 
-# Install
-
-```
-npm install -g course-binder
-```
-
-# Setup
-
-1. [Get an account](https://cloud.digitalocean.com/registrations/new) on Digital Ocean
-
-2. Create access tokens for Spaces API [from the dev console](https://cloud.digitalocean.com/account/api/tokens)
-
-3. Set the Digital Ocean Space endpoint, key and secret in your environment:
-
-```
-DO_SPACE_ENDPOINT=https://nyc3.digitaloceanspaces.com
-DO_SPACE_KEY=DO00CE96V9TKWYEXHA6W
-DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
-```
-
 # Defining a Course
 
 A course is specified in JSON. Videos are sourced off the local filesystem with path relative to spec file.
@@ -76,8 +56,32 @@ To test the compiler out, I built 3 courses I've taken in the past. The JSON spe
 
 The videos for [this course](https://www.startupschool.org/curriculum) are hosted on Youtube so I used [pytube](https://pytube.io/en/latest/) to dump each of the videos to mp4 format and ran them through the compiler. [Binder file](examples/yc-startup-school/binder.json).
 
+# Install
+
+```
+npm install -g course-binder
+```
+
+# Setup
+
+1. [Get an account](https://cloud.digitalocean.com/registrations/new) on Digital Ocean
+
+2. Create access tokens for Spaces API [from the dev console](https://cloud.digitalocean.com/account/api/tokens)
+
+3. Set the Digital Ocean Space endpoint, key and secret in your environment:
+
+```
+DO_SPACE_ENDPOINT=https://nyc3.digitaloceanspaces.com
+DO_SPACE_KEY=DO00CE96V9TKWYEXHA6W
+DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
+```
+
 # Userland Apps
 
 ## iOS
 
+[Source Code](ios/Userland)
+
 ## Android
+
+[Source Code](android/)

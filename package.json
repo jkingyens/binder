@@ -1,6 +1,6 @@
 {
   "name": "course-binder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jeff Kingyens",
   "license": "MIT",
   "description": "a compiler for building online courses",
