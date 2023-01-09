@@ -5,7 +5,7 @@ Binder is a compiler that bundles a set of videos into a course program. The com
 # Install
 
 ```
-npm install -g binder
+npm install -g course-binder
 ```
 
 # Setup
