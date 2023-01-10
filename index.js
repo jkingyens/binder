@@ -212,15 +212,15 @@ await (async () => {
     await run4()
 
     let contents = [ ];
-    Object.keys(outputApp.modules).forEach( function (moduleName, i) { 
-        Object.keys(outputApp.modules[moduleName]).forEach( function (videoName, i) { 
+    for (var i = 0; i < outputApp.modules.length; i++) { 
+        for (var j = 0; j < outputApp.modules[i].videos.length; j++) { 
             contents.push({ 
-                vurl: outputApp.modules[moduleName][videoName].source,
-                url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html',
-                name: outputApp.modules[moduleName][videoName].name
+                name: outputApp.modules[i].videos[j].name,
+                vurl: outputApp.modules[i].videos[j].source,
+                url: process.env.DO_SPACE_ENDPOINT + '/' + parsedApp.name.bundle + '/' + i + '.html'
             })
-        })
-    })
+        }
+    }
 
     // render app template using handlebars?
     let templ = handlebars.compile(fs.readFileSync(__dirname + '/mweb/template.html', 'utf8'));
@@ -229,8 +229,6 @@ await (async () => {
         display: parsedApp.name.display, 
         contents: contents
     })
-
-    // console.log(htmlOutput)
 
     // lets build an html page for these video files as well
     // output the link to the course contents (which in term references deployed resources)

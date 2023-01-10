@@ -1,10 +1,13 @@
 package com.substrait;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -50,23 +53,42 @@ private ActivityMainBinding binding;
                         .setAction("Action", null).show();
 
                  */
-
-                /*
-                AlertDialog.Builder alert = new AlertDialog.Builder(getApplicationContext());
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle(R.string.addurl_prompt);
                 EditText input = new EditText(getApplicationContext());
+
+
+                input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                    @Override
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        input.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                InputMethodManager inputMethodManager= (InputMethodManager) MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                                inputMethodManager.showSoftInput(input, InputMethodManager.SHOW_IMPLICIT);
+                            }
+                        }, 100);
+                    }
+                });
+                input.requestFocus();
+
                 alert.setView(input);
-                String out;
                 alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     //@Override
                     public void onClick(DialogInterface dialog, int which) {
-                        EditText input = (EditText) dialog.findViewById("myInput");
+                        // EditText input = (EditText) dialog.findViewById("myInput");
                         Editable value = input.getText();
-                        out = value.toString();
+                        String out = value.toString();
+                        Log.d("dfsdf", out);
+                    }
+                });
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-
-                 */
+                alert.show();
 
             }
         });

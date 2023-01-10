@@ -15,10 +15,6 @@ class ULTabViewController : UITabBarController {
 
         super.loadView()
         
-        // let view = UIView()
-        // view.backgroundColor = .lightGray
-        // self.view = view
-        
         let floatingButton = UIButton()
         floatingButton.setTitle("+", for: .normal)
         floatingButton.backgroundColor = .gray
