@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D5038i" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ULAppCD" representedClassName="ULAppCD" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
+        <relationship name="modules" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ULModuleCD"/>
+        <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ULAppNameCD"/>
+    </entity>
+    <entity name="ULAppNameCD" representedClassName="ULAppNameCD" syncable="YES" codeGenerationType="class">
+        <attribute name="bundle" optional="YES" attributeType="String"/>
+        <attribute name="display" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ULModuleCD" representedClassName="ULModuleCD" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="videos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ULVideoCD"/>
+    </entity>
+    <entity name="ULVideoCD" representedClassName="ULVideoCD" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="source" optional="YES" attributeType="URI"/>
+    </entity>
+</model>

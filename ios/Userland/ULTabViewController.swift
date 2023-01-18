@@ -7,13 +7,20 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ULTabViewController : UITabBarController {
+    
+    var container: NSPersistentContainer!
     
     override func loadView() {
 
 
         super.loadView()
+        
+        guard container != nil else {
+                    fatalError("This view needs a persistent container.")
+                }
         
         let floatingButton = UIButton()
         floatingButton.setTitle("+", for: .normal)
@@ -77,6 +84,10 @@ class ULTabViewController : UITabBarController {
                          do {
                              let app = try decoder.decode(ULApp.self, from: Data(jsonString.utf8))
                              print(app)
+                             
+                             // store the coures in a local database
+                             
+                             
                          } catch {
                              print(error.localizedDescription)
                          }
@@ -93,4 +104,13 @@ class ULTabViewController : UITabBarController {
         self.present(alertController, animated: true, completion: nil)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // check which segue this is
+        if let nextVC = segue.destination as? NextViewController {
+            nextVC.container = container
+        }
+    }
+    
 }
