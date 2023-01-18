@@ -4,8 +4,7 @@ Binder is a compiler for bundling videos into courses. The compiler will deploy 
 
 # Defining a Course
 
-A course is specified in JSON. Videos are sourced off the local filesystem with path relative to spec file.
-Here is a sample with just one module and one video file:
+Make sure you have all the videos for the course downloaded to your local disk. Then, define the course with a JSON file:
 
 ```
 { 
