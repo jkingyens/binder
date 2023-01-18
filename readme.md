@@ -42,8 +42,6 @@ https://nyc3.digitaloceanspaces.com/<bundle name>/index.html
 
 # Example Courses
 
-To test the compiler out, I built 3 courses I've taken in the past. The JSON specifications for these coureses are availalble in the examples directory. The video files are not here because the content is owned by the authors of the videos.
-
 ### 1. The Positive Neuroplasticity Training
 
 [This course](https://courses.rickhanson.net/courses/the-positive-neuroplasticity-training) allowed me to download offline copies of the videos in mp4 format so I could run my compiler directly on those files. [Binder file](examples/neuro-training/binder.json).
