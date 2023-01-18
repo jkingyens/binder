@@ -11,7 +11,7 @@
         <!--Library-->
         <scene sceneID="eia-Pf-cgK">
             <objects>
-                <tableViewController id="Ezt-Gh-awB" sceneMemberID="viewController">
+                <tableViewController id="Ezt-Gh-awB" customClass="LibraryTableViewController" customModule="Userland" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="H29-7G-o2D">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
         <!--Complete-->
         <scene sceneID="G58-6H-mpa">
             <objects>
-                <viewController id="qn4-UF-t2O" sceneMemberID="viewController">
+                <viewController id="qn4-UF-t2O" customClass="CompleteTableViewController" customModule="Userland" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BTe-Sw-5Vo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
         <!--Active-->
         <scene sceneID="aCn-oL-lGs">
             <objects>
-                <viewController id="f7t-NN-LrL" sceneMemberID="viewController">
+                <viewController id="f7t-NN-LrL" customClass="ActiveTableViewController" customModule="Userland" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dEv-LK-Eom">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
