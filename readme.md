@@ -49,7 +49,7 @@ DO_SPACE_SECRET=uAJYxWaawOPN6J6pQkavNhuYd7QQh/+VmOjI/NWv+HQ
 To compile the course and deploy to Digital Ocean: 
 
 ```
-binder path/to/mycourse.json
+binder path/to/course/binder.json
 ```
 
 If there are no errors, the compiler will return a link that can be loaded from Userland:
