@@ -52,7 +52,7 @@ To compile the course and deploy to Digital Ocean:
 binder path/to/mycourse.json
 ```
 
-If there are no errors, the compiler will return a link to access the course material:
+If there are no errors, the compiler will return a link that can be loaded from Userland:
 
 ```
 https://nyc3.digitaloceanspaces.com/<bundle name>/userland.json
