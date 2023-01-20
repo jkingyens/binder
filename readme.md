@@ -60,7 +60,7 @@ https://nyc3.digitaloceanspaces.com/<bundle name>/userland.json
 
 # Userland Apps
 
-Install this app from a build or app store. Tap the "+" button and paste in the URL to a `userland.json` file.
+Install this app from a build or app store. Tap the "+" button and paste in the URL returned above.
 
 ## iOS
 
